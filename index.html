@@ -1,242 +1,562 @@
 <!DOCTYPE html>
+ 
 <html lang="fr">
+ 
 <head>
+ 
   <meta charset="UTF-8">
+ 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
   <title>TrippyLandy Menu</title>
+ 
   <style>
+ 
     body {
+ 
       margin: 0;
+ 
       font-family: 'Arial', sans-serif;
+ 
       background: url('https://getwallpapers.com/wallpaper/full/7/2/a/799824-gorgerous-fractal-wallpapers-1920x1080-for-macbook.jpg') no-repeat center center fixed;
+ 
       background-size: cover;
+ 
       color: white;
+ 
     }
+ 
 
+ 
     .logo {
+ 
       display: flex;
+ 
       justify-content: center;
+ 
       margin: 20px 0;
+ 
     }
+ 
 
+ 
     .logo img {
+ 
       max-width: 250px;
+ 
       border-radius: 20px;
+ 
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+ 
     }
+ 
 
+ 
     /* Titre Menu maintenant blanc, en italique avec une belle police */
+ 
     h1 {
+ 
       text-align: center;
+ 
       font-size: 2.8em;
+ 
       margin: 0;
+ 
       font-family: 'Lucida Sans', sans-serif;
+ 
       font-style: italic; 
+ 
       color: white;
+ 
     }
+ 
 
+ 
+
+    /* Nouveau fond opaque sous le "TrippyLandy" */
+ 
     .menu-title {
+ 
+
+      text-align: center;
+ 
+
+      font-size: 2.8em;
+ 
+
+      margin-top: 10px;
+ 
+
+      padding: 20px;
+ 
+
+      font-family: 'Freckle Face', cursive;
+ 
+
+      font-style: italic; 
+ 
+
+      background-color: rgba(0, 0, 0, 0.7); /* Fond opaque sous le titre TrippyLandy */
+ 
+
+      color: #39FF14 /* Vert neon pour "TrippYLandy" */
+ 
+
+      border-radius: 15px;
+ 
+
+      width: max-content;
+ 
+
+      margin: 20px auto;
+ 
+
+    }
+ 
+
   text-align: center;
+ 
+
   font-size: 2.8em;
+ 
+
   margin-top: 10px;
+ 
+
   padding: 20px;
-  font-family: 'Mystery Quest', cursive;    
+ 
+
+  font-family: 'Freckle Face', cursive;
+ 
+
   font-style: italic; 
+ 
+
   background-color: rgba(0, 0, 0, 0.7); /* Fond opaque sous le titre TrippyLandy */
-  color: black; /* Vert neon pour "TrippYLandy" */
+ 
+
+  color: #39FF14; /* Vert neon pour "TrippYLandy" */
+ 
+
   border-radius: 15px;
+ 
+
   width: max-content;
+ 
+
   margin: 20px auto;
+ 
+
 }
+ 
+
+
+ 
 
 h2 {
+ 
+
   text-align: center;
+ 
+
   font-weight: normal;
+ 
+
   margin: 0 0 30px;
-  color: #8A2BE2;
-  font-family: 'Mystery Quest', cursive;    
+ 
 
+  color: #e0e0e0;
+ 
+
+  font-family: 'Freckle Face', cursive;
+ 
+
+}
+ 
+
+ 
+
+    h2 {
+ 
+
+      text-align: center;
+ 
+
+      font-weight: normal;
+ 
+
+      margin: 0 0 30px;
+ 
+
+      color: #e0e0e0;
+ 
+
+      font-family: 'Rock Salt', cursive;
+ 
     }
+ 
 
+ 
     .menu {
+ 
       width: 90%;
+ 
       max-width: 800px;
+ 
       margin: 0 auto;
+ 
       border-radius: 15px;
+ 
       background: rgba(25, 25, 25, 0.85);
+ 
       padding: 20px;
+ 
     }
+ 
 
+ 
     .dropdown {
+ 
       background: #2e2e2e;
+ 
       margin-bottom: 10px;
-      border-radius: 8px;
+ 
+      border-radius: 10px;
+ 
       overflow: hidden;
+ 
     }
+ 
 
+ 
     .dropdown-btn {
+ 
       width: 100%;
+ 
       text-align: left;
+ 
       padding: 15px;
+ 
       font-size: 1.2em;
+ 
       cursor: pointer;
+ 
       background: #444;
+ 
       color: #fff;
+ 
       border: none;
+ 
       outline: none;
+ 
       display: flex;
+ 
       justify-content: space-between;
+ 
       align-items: center;
+ 
     }
+ 
 
+ 
     .dropdown-content {
+ 
       display: none;
+ 
       padding: 15px;
+ 
       background: #2e2e2e;
+ 
       font-size: 0.98em;
+ 
       white-space: pre-line;
+ 
     }
+ 
 
+ 
     .arrow {
+ 
       transition: transform 0.3s ease;
+ 
     }
+ 
 
+ 
     .active .arrow {
+ 
       transform: rotate(90deg);
+ 
     }
+ 
 
+ 
     /* Add google font */
+ 
     @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+ 
   </style>
+ 
 </head>
+ 
 <body>
+ 
 
+ 
 <!-- Titre Menu avec fond opaque sous Menu -->
+ 
 <h1>Menu</h1>
+ 
 
+ 
 <!-- Titre du menu "TrippyLandy" avec texte blanc et en italique -->
+ 
 <div class="menu-title">
+ 
   TrippyLandy
+ 
 </div>
+ 
 
+ 
 <div class="menu">
+ 
   <div class="dropdown">
+ 
     <button class="dropdown-btn" onclick="toggleDropdown(this)">▶️ Menu 1 - Voyage sans bagages (Psychédéliques)</button>
+ 
     <div class="dropdown-content">
+ 
 KETAMINE NEEDLES 🪡
+ 
 1G - 30€
+ 
 2G - 50€
+ 
 3G - 70€
+ 
 5G - 100€
+ 
 10G - 150€
+ 
 25G - 330€
+ 
 
+ 
 LSD DR.SEUSS 150ug 🖼️
+ 
 QUALITÉ LABO 🌌
+ 
 1 - 10€
+ 
 3 - 20€
+ 
 5 - 30€
+ 
 10 - 60€
+ 
 20 - 120€
+ 
 30 - 160€
+ 
 50 - 260€
+ 
 
+ 
 2-CB Eagles 16MG
+ 
 1 - 10€
+ 
 2 - 20€
+ 
 3 - 30€
+ 
 5 - 40€
+ 
 10 - 80€
+ 
 20 - 140€
+ 
     </div>
+ 
   </div>
+ 
 
+ 
   <div class="dropdown">
+ 
     <button class="dropdown-btn" onclick="toggleDropdown(this)">▶️ Menu 2 - Caféine Clandestine (Stimulants)</button>
+ 
     <div class="dropdown-content">
+ 
 MDMA COLA 🔶🔞
+ 
 0.5g - 10€
+ 
 1g - 20€
+ 
 1 Para 140Mg/+ - 5€
+ 
 
+ 
 SPEED PASTA 🌩️
+ 
 1G : 20€
+ 
 3G : 40€ ~ 13.3€/g
+ 
 5G : 50€ ~ 10€/g
+ 
 10G : 90€ ~ 9€/g
+ 
 20G : 160€ ~ 8€/g
+ 
 30G : 210€ ~ 7€/g
+ 
 50G : 300€ ~ 6€/g
+ 
 
+ 
 TAZ SQUID-GAME ROSE 267MG 🟥 🔴🔺
+ 
 2 Taz - 10€
+ 
 5 Taz - 20€
+ 
 10 Taz - 40€
+ 
 20 Taz - 70€
+ 
 50 Taz - 160€
+ 
 100 Taz - 300€
+ 
     </div>
+ 
   </div>
+ 
 
+ 
   <div class="dropdown">
+ 
     <button class="dropdown-btn" onclick="toggleDropdown(this)">▶️ Menu 3 - Traitement et THC (Pharma/THC)</button>
+ 
     <div class="dropdown-content">
+ 
 DrySift - 90u Premium Mandarina 🍊🥧
+ 
 
+ 
 2G - 20€
+ 
 5G - 40€
+ 
 10G - 80€
+ 
 25G - 180€
+ 
 50G - 340€
+ 
 Possibilité de faire morçeau entre 5G et 10G 
+ 
 
+ 
 Rivotril - Clonazepam 2mg (⏳)
+ 
 5 Pills 2mg - ?€
+ 
 10 Pills 2mg - ?€
+ 
 20 Pills 2mg - ?€
+ 
 30 Pills 2mg - ?€
+ 
 
+ 
 Pregabaline/Lyrica 300Mg (⏳)
+ 
 3 Pills - ?€
+ 
 5 Pills - ?€
+ 
 10 Pills - ?€
+ 
 20 Pills - ?€
+ 
 30 Pills - ?€
+ 
     </div>
+ 
   </div>
+ 
 
+ 
   <div class="dropdown">
+ 
     <button class="dropdown-btn" onclick="toggleDropdown(this)">▶️ Prochains Produits</button>
+ 
     <div class="dropdown-content">
+ 
 Lyrica 300mg 💊
+ 
 Rivotril Cp 2mg 💊
+ 
     </div>
+ 
   </div>
+ 
 </div>
+ 
 
+ 
 <script>
+ 
   function toggleDropdown(button) {
+ 
     const content = button.nextElementSibling;
+ 
     const allButtons = document.querySelectorAll('.dropdown-btn');
+ 
 
+ 
     allButtons.forEach(btn => {
+ 
       if (btn !== button) {
+ 
         btn.classList.remove('active');
+ 
         btn.innerText = btn.innerText.replace('🔽', '▶️');
+ 
         btn.nextElementSibling.style.display = 'none';
+ 
       }
+ 
     });
+ 
 
+ 
     button.classList.toggle('active');
+ 
     if (button.classList.contains('active')) {
+ 
       button.innerText = button.innerText.replace('▶️', '🔽');
+ 
       content.style.display = 'block';
+ 
     } else {
+ 
       button.innerText = button.innerText.replace('🔽', '▶️');
+ 
       content.style.display = 'none';
+ 
     }
+ 
   }
+ 
 </script>
+ 
 
+ 
 </body>
+ 
 </html>
