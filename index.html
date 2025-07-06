@@ -257,17 +257,17 @@ SERESTA - OXAZEPAM 50MG 💤
       allButtons.forEach(btn => {
         if (btn !== button) {
           btn.classList.remove('active');
-          btn.innerText = btn.innerText.replace('🔽', '▶️');
+          btn.innerText = btn.innerText.replace(':arrow_down_small:', ':arrow_forward:');
           btn.nextElementSibling.style.display = 'none';
         }
       });
 
       button.classList.toggle('active');
       if (button.classList.contains('active')) {
-        button.innerText = button.innerText.replace('▶️', '🔽');
+        button.innerText = button.innerText.replace(':arrow_forward:', ':arrow_down_small:');
         content.style.display = 'block';
       } else {
-        button.innerText = button.innerText.replace('🔽', '▶️');
+        button.innerText = button.innerText.replace(':arrow_down_small:', ':arrow_forward:');
         content.style.display = 'none';
       }
     }
