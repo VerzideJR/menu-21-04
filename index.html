@@ -1,138 +1,527 @@
 <!DOCTYPE html>
 <html lang="fr">
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  <title>TrippyLandy 👁️ Menu</title>  
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TrippyLandy Menu</title>
-<div class="menu-title">
-  TrippyLandy
-</div>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+  <!-- Import de la police Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: url('https://getwallpapers.com/wallpaper/full/7/2/a/799824-gorgerous-fractal-wallpapers-1920x1080-for-macbook.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #ffffff;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-weight: 400;
+      line-height: 1.5;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
     }
 
-    .logo {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
+    /* Particules flottantes */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
     }
 
-    .logo img {
-      max-width: 250px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    .particle {
+      position: absolute;
+      background: radial-gradient(circle, #00ffe0 0%, transparent 70%);
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: float 20s infinite linear;
     }
 
-    h1 {
-      text-align: center;
-      font-size: 2.8em;
-      margin: 0;
-      font-family: 'Lucida Sans', sans-serif;
-      font-style: italic;
-      color: white;
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.1;
+      }
+      90% {
+        opacity: 0.1;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
     }
 
+    /* Menu title avec animation */
     .menu-title {
-  text-align: center;
-  font-size: 2.8em;
-  margin: 20px auto;
-  padding: 20px;
-  font-family: 'Marcellus', sans-serif;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #8A2BE2;
-  border-radius: 15px;
-  width: max-content;
-  font-weight: 800;
-  text-shadow:
-    0 0 5px #8A2BE2,
-    0 0 10px #8A2BE2,
-    0 0 20px rgba(138, 43, 226, 0.7),
-    2px 2px 6px rgba(0, 0, 0, 0.8);
-}
-
-
-    h2 {
       text-align: center;
-      font-weight: normal;
-      margin: 0 0 30px;
-      color: #e0e0e0;
-      font-family: 'Marcellus', sans-serif;
+      font-size: clamp(2em, 5vw, 3.5em);
+      margin: 20px auto;
+      padding: 25px;
+      font-weight: 800;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(138, 43, 226, 0.3));
+      color: #00ffe0;
+      border: 2px solid #8A2BE2;
+      border-radius: 20px;
+      text-shadow: 0 0 10px #00ffe0, 0 0 20px #8A2BE2;
+      box-shadow: 0 0 40px rgba(138, 43, 226, 0.5), inset 0 0 20px rgba(0, 255, 224, 0.1);
+      width: max-content;
+      letter-spacing: -0.02em;
+      position: relative;
+      overflow: hidden;
+      animation: titleGlow 3s ease-in-out infinite alternate;
     }
 
+    .menu-title::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(0, 255, 224, 0.1), transparent);
+      animation: scan 4s linear infinite;
+    }
+
+    @keyframes titleGlow {
+      from {
+        box-shadow: 0 0 40px rgba(138, 43, 226, 0.5), inset 0 0 20px rgba(0, 255, 224, 0.1);
+      }
+      to {
+        box-shadow: 0 0 60px rgba(138, 43, 226, 0.8), inset 0 0 30px rgba(0, 255, 224, 0.2);
+      }
+    }
+
+    @keyframes scan {
+      0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+      }
+      100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+      }
+    }
+
+    /* Menu principal */
     .menu {
       width: 90%;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
-      border-radius: 15px;
-      background: rgba(25, 25, 25, 0.85);
-      padding: 20px;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(20, 20, 20, 0.8));
+      border-radius: 25px;
+      padding: 25px;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(0, 255, 224, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 255, 224, 0.3);
+      animation: menuAppear 1s ease-out;
     }
 
+    @keyframes menuAppear {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Dropdown amélioré */
     .dropdown {
-      background: #2e2e2e;
-      margin-bottom: 10px;
-      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(20, 20, 20, 0.95), rgba(40, 40, 40, 0.8));
+      margin-bottom: 15px;
+      border-radius: 15px;
       overflow: hidden;
+      border: 1px solid rgba(0, 255, 224, 0.4);
+      box-shadow: 0 5px 20px rgba(0, 255, 224, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .dropdown::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 224, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .dropdown:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 255, 224, 0.3);
+      border-color: #00ffe0;
+    }
+
+    .dropdown:hover::before {
+      left: 100%;
     }
 
     .dropdown-btn {
       width: 100%;
       text-align: left;
-      padding: 15px;
-      font-size: 1.2em;
+      padding: 18px 20px;
+      font-size: 1.3em;
       cursor: pointer;
-      background: #444;
-      color: #fff;
+      background: linear-gradient(135deg, #111, #1a1a1a);
+      color: #00ffe0;
       border: none;
       outline: none;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      text-shadow: 0 0 8px #00ffe0;
+      font-weight: 600;
+      font-family: inherit;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dropdown-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: radial-gradient(circle, rgba(0, 255, 224, 0.2) 0%, transparent 70%);
+      transition: all 0.3s ease;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+
+    .dropdown-btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .dropdown-btn:hover {
+      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+      text-shadow: 0 0 12px #00ffe0;
+    }
+
+    .arrow {
+      font-size: 1.2em;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      color: #8A2BE2;
+      text-shadow: 0 0 5px #8A2BE2;
     }
 
     .dropdown-content {
       display: none;
-      padding: 15px;
-      background: #2e2e2e;
-      font-size: 0.98em;
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(20, 20, 30, 0.9));
+      font-size: 1em;
+      color: #e0e0e0;
       white-space: pre-line;
+      border-top: 1px solid rgba(138, 43, 226, 0.5);
+      font-weight: 400;
+      line-height: 1.7;
+      animation: slideDown 0.3s ease-out;
+      position: relative;
     }
 
-    .arrow {
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .dropdown-content img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 5px 25px rgba(138, 43, 226, 0.4);
       transition: transform 0.3s ease;
     }
 
+    .dropdown-content img:hover {
+      transform: scale(1.05);
+    }
+
+    .highlight {
+      color: #ffde59;
+      font-weight: 600;
+      text-shadow: 0 0 8px #ffde59;
+      position: relative;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        text-shadow: 0 0 8px #ffde59;
+      }
+      50% {
+        text-shadow: 0 0 15px #ffde59, 0 0 25px rgba(255, 222, 89, 0.5);
+      }
+    }
+
     .active .arrow {
-      transform: rotate(90deg);
+      transform: rotate(180deg);
+      color: #00ffe0;
+      text-shadow: 0 0 8px #00ffe0;
+    }
+
+    /* Bouton copier amélioré */
+    #copyIdBtn {
+      margin-top: 15px;
+      padding: 12px 20px;
+      font-size: 0.95em;
+      cursor: pointer;
+      background: linear-gradient(135deg, #00ffe0, #00c2b2);
+      border: none;
+      border-radius: 10px;
+      color: #000;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-family: inherit;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 255, 224, 0.3);
+    }
+
+    #copyIdBtn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+
+    #copyIdBtn:hover {
+      background: linear-gradient(135deg, #00c2b2, #00a89c);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 255, 224, 0.4);
+    }
+
+    #copyIdBtn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    #copyIdBtn:active {
+      transform: translateY(0);
+    }
+
+    #copyStatus {
+      margin-left: 15px;
+      color: #ffde59;
+      font-weight: 600;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateX(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Amélioration de la lisibilité */
+    .dropdown-content strong {
+      font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Effet de survol pour les prix */
+    .dropdown-content {
+      font-feature-settings: "tnum" 1;
+    }
+
+    /* Barre de progression pour le chargement */
+    .loading-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #00ffe0, #8A2BE2, #00ffe0);
+      background-size: 200% 100%;
+      animation: loading 2s ease-out;
+      z-index: 1000;
+    }
+
+    @keyframes loading {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+    /* Responsive improvements */
+    @media (max-width: 768px) {
+      .menu {
+        width: 95%;
+        padding: 20px;
+      }
+      
+      .dropdown-btn {
+        font-size: 1.1em;
+        padding: 15px;
+      }
+      
+      .menu-title {
+        font-size: 2.5em;
+        padding: 20px;
+      }
+    }
+
+    /* Effet de clic */
+    .click-effect {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, #00ffe0 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1000;
+      animation: clickExpand 0.6s ease-out;
+    }
+
+    @keyframes clickExpand {
+      from {
+        transform: scale(0);
+        opacity: 1;
+      }
+      to {
+        transform: scale(20);
+        opacity: 0;
+      }
+    }
+
+    /* Scrollbar personnalisée */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #00ffe0, #8A2BE2);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(135deg, #00c2b2, #7a24d1);
+    }
+
+    /* Notification toast */
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #00ffe0, #00c2b2);
+      color: #000;
+      padding: 15px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      box-shadow: 0 5px 20px rgba(0, 255, 224, 0.3);
+      transform: translateX(400px);
+      transition: transform 0.3s ease;
+      z-index: 1001;
+    }
+
+    .toast.show {
+      transform: translateX(0);
     }
   </style>
 </head>
-
 <body>
 
-  <div class="menu">
+  <!-- Barre de chargement -->
+  <div class="loading-bar"></div>
 
-    <div class="dropdown">
-      <button class="dropdown-btn" onclick="toggleDropdown(this)">🔽 Menu 1 - Voyage sans bagages (Psychédéliques)</button>
+  <!-- Particules animées -->
+  <div class="particles" id="particles"></div>
+
+  <div class="menu-title" style="padding: 0; background: none; border: none; box-shadow: none; animation: none;">
+  <img src="https://trippylandy.neocities.org/TrippyLandy.png" alt="Logo PiraTrip" style="max-width: 220px; height: auto; margin: auto; display: block; filter: drop-shadow(0 0 20px #00ffe0);">
+</div>
+
+    <!-- INFOS -->
+    <div class="dropdown">  
+      <button class="dropdown-btn" onclick="toggleDropdown(this)">
+        💬 INFO 
+        <span class="arrow">▼</span>
+      </button>  
       <div class="dropdown-content">
-KETAMINE NEEDLES 🪡 🦄
+⚙️ 𝗙𝗢𝗡𝗖𝗧𝗜𝗢𝗡𝗡𝗘𝗠𝗘𝗡𝗧  
+🔹Zone d'activité 🧭 13  
+🔹Meetup + Livraison 📍
+
+☎️ 𝗖𝗢𝗡𝗧𝗔𝗖𝗧  
+Passer commande 📦 • Question ❓  
+UNIQUEMENT SÛR SIGNAL 🔒⬇️
+<!-- Bouton copier ID Signal -->
+<button id="copyIdBtn">Copier l'ID 
+Signal</button><span id="copyStatus"></span>
+
+🤝 𝗣𝗔𝗥𝗔𝗜𝗡𝗔𝗚𝗘 (ACTIVÉ 🟢)  
+À chaque pote de confiance :  
+💸 50€ ➜ <span class="highlight">20€ offerts</span>  
+💸 90€ ➜ <span class="highlight">40€ offerts</span>  
+💸 130€ ➜ <span class="highlight">60€ offerts</span>  
+Cumulable ✅ — hors MED-THC 💢 
+Actif dès 1️⃣ achat 💲
+
+⏳ 𝗛𝗢𝗥𝗔𝗜𝗥𝗘𝗦  
+• SEMAINE 🔸20h ▶️ 00h 
+• WEEKEND 🔸FULL TIME
+Organisation RDV ➡️ SESSION 🏴‍☠️
+
+🚨 𝗜𝗠𝗣𝗢𝗥𝗧𝗔𝗡𝗧  
+Horaires flexibles  ⛓️‍💥
+PRÉVENIR À L'AVANCE POUR ✅ COORDINATION 
+      </div>
+    </div>
+
+    <!-- DOUCHE MENTAL -->
+    <div class="dropdown">  
+      <button class="dropdown-btn" onclick="toggleDropdown(this)">
+        🤯 DOUCHE MENTAL
+        <span class="arrow">▼</span>
+      </button>  
+      <div class="dropdown-content">
+<strong>KETAMINE NEEDLES 🦄</strong>  
 QUALITÉ HAUT DE GAMME 🟩
-1G - 30€ 
-2G - 50€
-3G - 70€
-5G - 100€
-10G - 150€
+1G - 30€  
+2G - 50€  
+3G - 70€  
+5G - 100€  
+10G - 150€  
 25G - 330€
+
 
 QUALITÉ MILLIEU DE GAMME 🟧
 1G - 20€ 
@@ -141,46 +530,56 @@ QUALITÉ MILLIEU DE GAMME 🟧
 5G - 70€
 10G - 120€
 25G - 250€
-        
---------
-LSD DR.SEUSS 150ug 🖼️ 
-DE RETOUR ! 🌌 
-1 - 10€
-3 - 20€
-5 - 30€
-10 - 60€
-20 - 120€
-30 - 160€
+
+
+<strong>LSD DR.SEUSS 150ug 🫠</strong>  
+1 - 10€  
+3 - 20€  
+5 - 30€  
+10 - 60€  
+20 - 120€  
+30 - 160€  
 50 - 260€
 
-LSD WHITEFLUFF 94% - GOUTTE 100ug
-10€/💧
+<strong>LSD WHITEFLUFF 94% 100ug 😶‍🌫️</strong>  
+10€/💧  
 220€ Fioles 50💧
 
-LSD WHITEFLUFF 94% - GOUTTE 150ug
-10€/💧
+<strong>LSD WHITEFLUFF 94% 150ug 😶‍🌫️</strong>  
+10€/💧  
 230€ Fioles 50💧
-        
-LSD AZTEK 97% - GOUTTE 150ug 
-10€/💧 RUPTURE ❌
+
+<strong>LSD AZTEK 97% 150ug 🗻</strong>  
+10€/💧  RUPTURE
 250€ Fioles 50💧
 
       </div>
     </div>
 
-    <div class="dropdown">
-      <button class="dropdown-btn" onclick="toggleDropdown(this)">🔽 Menu 2 - Caféine Clandestine (Stimulants)</button>
+    <!-- STIMULANT -->
+    <div class="dropdown">  
+      <button class="dropdown-btn" onclick="toggleDropdown(this)">
+        🫨 STIMULANT 
+        <span class="arrow">▼</span>
+      </button>  
       <div class="dropdown-content">
-MDMA CHAMPAGNE 🥂🍾 
-Pureté - 86%✅🧬 
-1G - 30€ 
-2G - 40€
-3G - 60€ 
-5G - 100€
-10G - 160€
-20G - 300€
-        
-PÂTE D'AMPHÉTAMINES 🌩️ 
+      
+<strong>
+4-MMC 😻💗</strong>
+1G - 40€
+2G - 70€
+3G - 100€
+5G - 150€
+
+<strong>MDMA CHAMPAGNE 86% 🥂</strong>
+1G - 30€  
+2G - 50€  
+3G - 60€  
+5G - 100€  
+10G - 170€  
+20G - 310€
+
+<strong>PÂTE D'AMPHETAMINE  🌩️</strong> 
 RENDU - 60% SEC AMPHÉTAMINES⚡
 1G - 20€
 2G - 30€
@@ -192,110 +591,227 @@ RENDU - 60% SEC AMPHÉTAMINES⚡
 50G - 300€ ~ 6€/g      
 
 POUR AMPHÉTAMINES SEC
-DM ✉️
-        
 
-4-MMC 😻💗 
-1G - 40€ 
-2G - 70€
-3G - 100€ 
-5G - 150€
 
-TAZ REAPER 329MG 👻😈❤️‍🔥
-3u - 20€ 
-5u - 30€ 
-10u - 50€ 
-20u - 80€ 
-50u - 180€ 
-100u - 330€
 
-TAZ ROLEX ⌚ 204MG
-2 Taz - 10€
-5 Taz - 20€
-10 Taz - 40€
-20 Taz - 70€
-50 Taz - 160€
+<strong>TAZ REAPER 329MG 🔪</strong>  
+3u ~ 20€  
+5u ~ 30€  
+10u ~ 50€  
+20u ~ 80€  
+50u ~ 180€  
+100u ~ 330€
+
+<strong>TAZ ROLEX 204MG 💎</strong>  
+2 Taz - 10€  
+5 Taz - 20€  
+10 Taz - 40€  
+20 Taz - 70€  
+50 Taz - 160€  
 100 Taz - 300€
-        
+
       </div>
     </div>
 
-    <div class="dropdown">
-      <button class="dropdown-btn" onclick="toggleDropdown(this)">🔽 Menu 3 - Traitement et THC (Pharma/THC)</button>
+    <!-- MED + THC -->
+    <div class="dropdown">  
+      <button class="dropdown-btn" onclick="toggleDropdown(this)">
+        ⚕️ MED + THC
+        <span class="arrow">▼</span>
+      </button>  
       <div class="dropdown-content">
-
-DRY 🍫 - 120u Passions Fruits 🍋‍🟩🥭      
+      
+<strong>
+DRY 🍫 - 120u Passions Fruits 🍋‍🟩🥭</strong>
 2G - 20€
 5G - 40€
 10G - 80€
-25G - 180€ 
-50G - 340€        
+25G - 180€
+50G - 340€
 
-        
-XANAX - ALPRAZOLAM 0.5MG 😶‍🌫️
+<strong>PREGABALINE/LYRICA 300MG 💊</strong>  
+2.5€/unité
+
+<strong>RIVOTRIL - CLONAZEPAM 2MG 🤤</strong>  
+10 Pills - 30€  
+20 Pills - 50€  
+30 Pills - 70€
+
+<strong>XANAX - ALPRAZOLAM 0.5MG 🥴 </strong>
 10 Pills - 10€
 20 Pills - 20€
 30 Pills (1 Box) - 30€
 
-
-LEXOMIL - BROMAZEPAM 6MG 🟩🧘‍♂️
+<strong>LEXOMIL - BROMAZEPAM 6MG 🤖</strong>
 10 Pills - 20€
 20 Pills - 30€
 30 Pills (1 Box) - 40€
 
-PREGABALINE/LYRICA 300MG 💊
-2.5€/unité - Non négociable
-
-RIVOTRIL - CLONAZEPAM 2MG 🤤 - Stock limité
-10 Pills 2mg - 30€
-20 Pills 2mg - 50€
-30 Pills 2mg - 70€
-
-SERESTA - OXAZEPAM 50MG 💤
-10 Pills - 20€
-20 Pills - 30€ 
-
+<strong>SERESTA - OXAZEPAM 50MG 💤</strong> 
+10 Pills - 20€  
+20 Pills - 30€
       </div>
     </div>
+
+    <!-- LABTEST -->
+    <div class="dropdown">  
+      <button class="dropdown-btn" onclick="toggleDropdown(this)">
+        👨‍🔬 LABTEST
+        <span class="arrow">▼</span>
+      </button>  
+      <div class="dropdown-content">
+📂 <strong>Labtest analyse</strong> 🔬  
+<div style="display:flex; flex-direction:column; gap:15px;">  
+  <div>  
+    <p><strong>TAZ REAPER 🔪</strong></p>  
+    <img src="https://i.ibb.co/XrrksfJR/signal-2025-06-27-14-31-46-049-1.jpg" alt="Test MDMA">  
+  </div>  
 </div>
+      </div>
     </div>
 
-    <div class="dropdown">
-      <button class="dropdown-btn" onclick="toggleDropdown(this)">🔽 NOUVEAUTÉS...⏳💫‼️</button>
-      <div class="dropdown-content">
-        ⬇️⬇️⬇️⬇️⬇️⬇️
-        ELEMENTS 🌐🗺️.....🤐🤐🤐
+    <!-- PROCHAINEMENT -->
+    <div class="dropdown">  
+      <button class="dropdown-btn" onclick="toggleDropdown(this)">
+        🔜 PROCHAINEMENT
+        <span class="arrow">▼</span>
+      </button>  
+      <div class="dropdown-content">  
+
+➡️ <strong>ELEMENTS....</strong> 🥱  
       </div>
     </div>
 
   </div>
 
+  <!-- Script amélioré -->
   <script>
+    // Gestion des particules
+    function createParticles() {
+      const particles = document.getElementById('particles');
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.width = Math.random() * 4 + 2 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+        particles.appendChild(particle);
+      }
+    }
+
+    // Effet de clic
+    function createClickEffect(e) {
+      const effect = document.createElement('div');
+      effect.className = 'click-effect';
+      effect.style.left = e.clientX - 5 + 'px';
+      effect.style.top = e.clientY - 5 + 'px';
+      document.body.appendChild(effect);
+      
+      setTimeout(() => {
+        effect.remove();
+      }, 600);
+    }
+
+    // Toast notification
+    function showToast(message) {
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = message;
+      document.body.appendChild(toast);
+      
+      setTimeout(() => {
+        toast.classList.add('show');
+      }, 100);
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+          toast.remove();
+        }, 300);
+      }, 3000);
+    }
+
+    // Fonction dropdown améliorée
     function toggleDropdown(button) {
       const content = button.nextElementSibling;
       const allButtons = document.querySelectorAll('.dropdown-btn');
-
+      
       allButtons.forEach(btn => {
         if (btn !== button) {
           btn.classList.remove('active');
-          btn.innerText = btn.innerText.replace(':arrow_down_small:', ':arrow_forward:');
           btn.nextElementSibling.style.display = 'none';
         }
       });
-
+      
       button.classList.toggle('active');
+      
       if (button.classList.contains('active')) {
-        button.innerText = button.innerText.replace(':arrow_forward:', ':arrow_down_small:');
         content.style.display = 'block';
       } else {
-        button.innerText = button.innerText.replace(':arrow_down_small:', ':arrow_forward:');
         content.style.display = 'none';
       }
     }
+
+// ID de Signal
+const signalId = '@TrippyLandy.13';
+
+document.getElementById('copyIdBtn').addEventListener('click', (e) => {
+  createClickEffect(e);
+
+  navigator.clipboard.writeText(signalId)
+    .then(() => {
+      const status = document.getElementById('copyStatus');
+      status.textContent = 'ID copié ✔️';
+      showToast('ID Signal copié avec succès !');
+      setTimeout(() => status.textContent = '', 3000);
+    })
+    .catch(() => {
+      showToast('Erreur lors de la copie');
+    });
+});
+
+    // Ajout d'effets de clic sur tous les boutons
+    document.addEventListener('click', createClickEffect);
+
+    // Initialisation
+    window.addEventListener('load', () => {
+      createParticles();
+      
+      // Masquer la barre de chargement
+      setTimeout(() => {
+        document.querySelector('.loading-bar').style.display = 'none';
+      }, 2000);
+    });
+
+    // Effet de parallaxe léger pour le titre
+    document.addEventListener('mousemove', (e) => {
+      const title = document.querySelector('.menu-title');
+      const x = (e.clientX / window.innerWidth) * 10 - 5;
+      const y = (e.clientY / window.innerHeight) * 10 - 5;
+      
+      title.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    // Animation des dropdowns au scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationDelay = Math.random() * 0.5 + 's';
+          entry.target.style.animation = 'menuAppear 0.6s ease-out forwards';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      observer.observe(dropdown);
+    });
   </script>
-
 </body>
-
 </html>
-
-
